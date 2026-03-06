@@ -1,7 +1,3 @@
-# Endpoint raíz para health check de Railway
-@app.get("/")
-def root():
-    return {"status": "ok"}
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Depends
@@ -22,7 +18,6 @@ _price_feed = PriceFeed(ws_manager)
 class GoogleAuthRequest(BaseModel):
     token: str
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Run startup logic before yield, shutdown logic after."""
@@ -39,6 +34,10 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+    
 # CORS — allow local frontend dev servers
 app.add_middleware(
     CORSMiddleware,
