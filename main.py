@@ -1,3 +1,7 @@
+# Endpoint raíz para health check de Railway
+@app.get("/")
+def root():
+    return {"status": "ok"}
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Depends
