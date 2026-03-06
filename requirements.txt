@@ -14,7 +14,7 @@ alpaca-py
 
 # Database (async — correcto para FastAPI async)
 sqlalchemy[asyncio]
-aiosqlite
+psycopg2-binary
 
 # HTTP client
 httpx

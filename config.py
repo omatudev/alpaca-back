@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
 
 
 class Settings(BaseSettings):
@@ -15,7 +16,7 @@ class Settings(BaseSettings):
     alpaca_paper: bool = True
 
     # Database
-    database_url: str = "sqlite:///./my_broker.db"
+    database_url: str = os.getenv("DATABASE_URL", "postgresql+asyncpg://user:password@localhost/db_name")
 
     # Auth
     google_client_id: str = "879038766799-lihogd5k6ed49n9gbv29min1mftfp78h.apps.googleusercontent.com"

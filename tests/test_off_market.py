@@ -291,7 +291,7 @@ def client():
     - in-memory SQLite (for watchlist / DB endpoints)
     - alpaca_client and alpaca_market_data fully mocked
     """
-    engine = create_async_engine("sqlite+aiosqlite:///:memory:")
+    engine = create_async_engine("postgresql+asyncpg://user:password@localhost/test_db")
     TestingSession = async_sessionmaker(
         bind=engine, expire_on_commit=False, class_=AsyncSession
     )

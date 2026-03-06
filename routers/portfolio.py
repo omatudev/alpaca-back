@@ -138,8 +138,7 @@ def get_equity_history(
     "/history",
     summary="Order history",
     description=(
-        "Fetches all closed orders from Alpaca, syncs them to the local SQLite "
-        "database, then returns the complete local order history."
+        "Fetches all closed orders from Alpaca, syncs them to the database, then returns the complete local order history."
     ),
 )
 async def get_history(

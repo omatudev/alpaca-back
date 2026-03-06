@@ -1,4 +1,4 @@
-"""CRUD helpers for local SQLite database.
+"""CRUD helpers for database operations.
 
 All functions accept an AsyncSession and are async.
 They do NOT commit — callers are responsible for committing when needed,

@@ -3,13 +3,14 @@ from sqlalchemy.orm import DeclarativeBase
 
 from config import settings
 
-# aiosqlite driver: sqlite+aiosqlite:///./my_broker.db
-_db_url = settings.database_url.replace("sqlite:///", "sqlite+aiosqlite:///")
+# Cambiar el driver a asyncpg para soporte asincrónico
+_db_url = settings.database_url.replace("postgresql://", "postgresql+asyncpg://")
+# Eliminar el argumento sslmode de la URL de conexión
+_db_url = _db_url.replace("?sslmode=require", "")
 
 engine = create_async_engine(
     _db_url,
-    echo=False,
-    connect_args={"check_same_thread": False},
+    echo=False,  # Eliminar connect_args para asyncpg
 )
 
 AsyncSessionLocal = async_sessionmaker(
