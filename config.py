@@ -23,6 +23,8 @@ class Settings(BaseSettings):
     allowed_email: str = "omatu.personal@gmail.com,yesseniaabrilixcanul@gmail.com"
     jwt_secret: str = "change-me-in-production"
     jwt_expiration_days: int = 30
+    # Frontend origins allowed for CORS (comma-separated)
+    frontend_origins: str = ""
 
 
 settings = Settings()
