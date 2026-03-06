@@ -1,0 +1,33 @@
+# FastAPI & Server
+fastapi
+uvicorn[standard]
+# websockets: uvicorn 0.41 usa internamente websockets.legacy y websockets.datastructures,
+# ambos eliminados en v12+. El módulo streaming/ de este proyecto usa FastAPI WebSocket
+# (basado en wsproto vía Starlette), por lo que el cap <12 solo afecta a uvicorn internamente.
+# Seguimiento del fix en upstream: https://github.com/encode/uvicorn/issues/1921
+websockets>=10.4,<12
+pydantic>=2
+pydantic-settings
+
+# Brokers
+alpaca-py
+
+# Database (async — correcto para FastAPI async)
+sqlalchemy[asyncio]
+aiosqlite
+
+# HTTP client
+httpx
+
+# Environment
+python-dotenv
+pytz
+
+# Auth
+google-auth
+python-jose[cryptography]
+
+# dev / testing
+pytest
+pytest-asyncio
+
